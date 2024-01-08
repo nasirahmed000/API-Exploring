@@ -1,2 +1,5 @@
-const user = {id: 1 , name : 'gorib Aamir ', job : 'Actor '};
-console.log(user);
+function loadData2(){
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
