@@ -14,5 +14,4 @@ function displayUsers2(data){
 
    }
 
-
 }
