@@ -1,18 +1,20 @@
-fetch('https://api.example.com/data', {
-    method: 'GET', // The HTTP method
-    headers: {
-        'Content-Type': 'application/json'
-    }
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json(); // Parses the JSON response body
-})
-.then(data => {
-    console.log(data); // Here's your data
-})
-.catch(error => {
-    console.error('There was a problem with your fetch operation:', error);
-});
+function submitSearch(e) {
+  pageNumber = 0;
+  fetchResults(e);
+}
+
+function fetchResults(e) {
+  // Use preventDefault() to stop the form submitting
+  e.preventDefault();
+
+  // Assemble the full URL
+  let url = `${baseURL}?api-key=${key}&page=${pageNumber}&q=${searchTerm.value}&fq=document_type:("article")`;
+
+  if (startDate.value !== "") {
+    url = `${url}&begin_date=${startDate.value}`;
+  }
+
+  if (endDate.value !== "") {
+    url = `${url}&end_date=${endDate.value}`;
+  }
+}
