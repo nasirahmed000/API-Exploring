@@ -15,3 +15,4 @@ fetch(apiUrl)
   .catch(error => {
     console.error('Error:', error);
   });
+  
